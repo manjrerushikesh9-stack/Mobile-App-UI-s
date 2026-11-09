@@ -2,6 +2,7 @@ import { View, Text, TextInput, ScrollView, Pressable } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Feather from "@expo/vector-icons/Feather";
 import { useState } from "react";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function ClinicianSearch() {
   const insets = useSafeAreaInsets();
@@ -12,10 +13,10 @@ export default function ClinicianSearch() {
 
   return (
     <View
-      className="flex-1 px-2 bg-[#FAF8F5]"
+      className="flex-1 px-5 bg-[#FAF8F5]"
       style={{ paddingTop: insets.top }}
     >
-      <View className="p-4">
+      <View>
         <Text className="text-4xl font-bold">Find a clinician</Text>
         <Text className="text-[#65635e] text-[15px] mt-2">
           Patients near Maple Ridge
@@ -63,6 +64,14 @@ export default function ClinicianSearch() {
             );
           })}
         </ScrollView>
+      </View>
+
+      <View className="px-3 py-3 my-6 bg-[#FDFBFA] border-[1px] items-center flex-row justify-around border-[#e5e7eb] rounded-xl">
+        <Ionicons name="warning" size={20} color="#65635e" />
+        <Text className="text-[#65635e] text-lg font-medium">
+          Couldn't refresh results - showing saving result.
+        </Text>
+        <Text className="text-[#016a71] font-semibold">Retry</Text>
       </View>
     </View>
   );
